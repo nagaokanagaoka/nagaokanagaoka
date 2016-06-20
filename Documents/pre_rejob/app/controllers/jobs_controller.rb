@@ -9,9 +9,4 @@ end
 
   def job
   end
-
-#案件詳細
-  def show
-    @job = Job.find(params[:id])
-  end
 end

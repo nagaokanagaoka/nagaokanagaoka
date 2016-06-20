@@ -1,20 +1,20 @@
 <h1>案件一覧</h1>
-<%#=案件引っ張ってくる%>
+<!-- <%#=案件引っ張ってくる%>
 <% @jobs.each do |job| %>
   <p><%= job.title %></p>
-<% end %>
+<% end %> -->
 
 <%#=リンク%>
 <table class="list">
-  <tr>
+  <!-- <tr>
     <th>求人ID</th>
-    <th>求人タイトル</th>
+    <th>求人タイトル</th> -->
   </tr>
   <% @jobs.each do |job| %>
   <tr>
-    <td><%= link_to job.title, job %></td>
+    <td><%= link_to job.title, :admins_show %></td>
     <td>
-      <%= link_to "編集", [:edit, job] %>
+      <%= link_to "編集", :admins_edit %>
 
     </td>
   </tr>
