@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comment: MyText
+  diary_id: MyString
+  int: MyString
+
+two:
+  comment: MyText
+  diary_id: MyString
+  int: MyString

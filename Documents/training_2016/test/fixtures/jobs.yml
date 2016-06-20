@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job_type_id: 1
+  Job_type_detail_id: 1
+  Employment_id: 1
+  characteristic_id: 1
+  treatment_id: 1
+  office_hour_id: 1
+  experience_id: 1
+
+two:
+  job_type_id: 1
+  Job_type_detail_id: 1
+  Employment_id: 1
+  characteristic_id: 1
+  treatment_id: 1
+  office_hour_id: 1
+  experience_id: 1

@@ -1,0 +1,13 @@
+<h1> 案件一覧 </h1>
+<p>
+    <%= f.label :area_id, '都道府県:' %>
+    <%= f.collection_select :area_id, Area.all, :id, :name, include_blank: true %>
+  </p>
+
+<ul>
+
+     <li><%= @job.title %></li>
+
+</ul>
+
+  <p><%= link_to '案件詳細',jobs_job_path %></p>
