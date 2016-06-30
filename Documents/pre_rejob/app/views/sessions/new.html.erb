@@ -1,0 +1,23 @@
+<a href ="http://localhost:3000/tops/show"><img src="https://relax-job.com/images/user_frontend/pc/logo_header.png" alt="リジョブ"></a>
+<hr>
+<div align = center>
+<% provide(:title, "ユーザー様ログイン画面") %>
+<h1><font size="4">ユーザー様ログイン画面</font></h1>
+</br></br>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.submit "ログイン", class: "btn btn-primary" %>
+    <% end %>
+
+  </br></br>
+    <p><font size="4">初めての方はこちら👉👉👉<%= link_to "新規登録", :signup %></font></p>
+  </div>
+</div>

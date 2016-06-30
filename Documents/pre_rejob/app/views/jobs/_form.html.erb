@@ -1,0 +1,24 @@
+<table class="attr">
+  <img src="<%= @job.try(:image_path) %> "alt="" />
+  <%= form.fields_for :image do |imgf| %>
+  <table class="table table-set--jobdata">
+    <colgroup>
+      <col style="width: 140px;">
+    </colgroup>
+
+  <input type="file" name="image">
+  <% end %>
+
+  <tr>
+    <th><%= form.label :title, "タイトル" %></th>
+    <td><%= form.text_area :title %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :detail, "PR" %></th>
+    <td><%= form.text_area :detail %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :area, "勤務地" %></th>
+    <td><%= form.text_field :area %></td>
+  </tr>
+</table>

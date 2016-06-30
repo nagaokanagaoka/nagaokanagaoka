@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160620053325) do
+ActiveRecord::Schema.define(version: 20160629054854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,10 +27,33 @@ ActiveRecord::Schema.define(version: 20160620053325) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "entries", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "job_images", force: :cascade do |t|
+    t.integer  "job_id",       null: false
+    t.binary   "data"
+    t.string   "content_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "job_images", ["job_id"], name: "index_job_images_on_job_id", using: :btree
+
   create_table "jobs", force: :cascade do |t|
     t.string   "title"
     t.text     "detail"
     t.string   "area"
+    t.string   "image_path"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "jobs_users", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "job_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,6 +63,20 @@ ActiveRecord::Schema.define(version: 20160620053325) do
     t.string   "job_title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password"
+    t.string   "sex"
+    t.integer  "age"
+    t.string   "objective"
+    t.text     "pr"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "remember_digest"
+    t.string   "password_digest"
   end
 
 end

@@ -1,36 +1,54 @@
 Rails.application.routes.draw do
-  get 'admins/index'
 
-  get 'admins/show'
-
-  get 'admins/top'
-
-  get 'admins/edit'
-
-  get 'lists/index'
-
-  get 'lists/show'
-
-  get 'lists/lists'
-
-  get 'lists/pref'
-
-  get 'tops/index'
+  root                'static_pages#home'
+  get    'help'    => 'static_pages#help'
+  get    'about'   => 'static_pages#about'
+  get    'contact' => 'static_pages#contact'
+  get    'signup'  => 'users#new'
+  get    'login'   => 'sessions#new'  #新しいセッションのページ (ログイン)
+  post   'login'   => 'sessions#create' #新しいセッションの作成 (ログイン)
+  delete 'logout'  => 'sessions#destroy'  #セッションの削除 (ログアウト)
 
   get 'tops/show'
 
-  get 'tops/top'
+  # get 'jobs/index'
+  #
+  # get 'jobs/new'
+  #
+  # post 'jobs/edit'
+  #
+  post 'jobs/entry'
 
-  get 'jobs/index'
+  # delete 'jobs/delete'
 
-  get 'jobs/show'
+  # get 'users/index'
+  #
+  # get 'users/show'
+  #
+  # get 'users/new'
+  #
+  # post 'users/create'
+  #
+  # post 'users/login'
+  #
+  # post 'users/edit'
+  #
+  # get 'admins/index'
+  patch '/users/:id/edit' => 'users#edit'
 
-  get 'jobs/job'
+  get 'sessions/new'
 
-  get 'admins/top'
+  resources :jobs do
+    collection { get "search" }
+  end
 
+  resources :admins do
+    collection { get "search" }
+  end
 
-  resources :admin
+  resources :users do
+    collection { get "search" }
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,16 @@
+<header>
+<div class="header">
+
+  <div class="header-top">
+    <div class="container">
+      <ul class="header-top__navi">
+      </ul>
+    </div>
+  </div>
+</header>
+<p><font size="4"><%= link_to "戻る", :admins %></font></p>
+
+<%= form_for @job, html: { multipart: true } do |form| %>
+<%= render "form", form: form %>
+<p><%= form.submit "申請"%></p>
+<% end %>

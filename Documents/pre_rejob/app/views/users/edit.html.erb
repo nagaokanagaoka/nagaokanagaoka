@@ -1,0 +1,87 @@
+<header>
+<div class="header">
+
+  <div class="header-top">
+    <div class="container">
+      <ul class="header-top__navi">
+      </ul>
+    </div>
+  </div>
+</header>
+
+<a href ="http://localhost:3000/tops/show"><img src="https://relax-job.com/images/user_frontend/pc/logo_header.png" alt="リジョブ"></a>
+<button><%= link_to '戻る', "/users/#{session[:user_id]}" %></button>
+<hr>
+<div align = center>
+<h1><font size="5">登録情報編集</font></h1>
+<%= form_for @user do |f| %>
+<table class="table table-set--jobdata">
+  <colgroup>
+    <col style="width: 140px;">
+  </colgroup>
+<tr>
+  <th><%= f.label :"名前" %></th>
+  <td><%= f.text_field :name %></td>
+  <% if @user.errors.any? %>
+  <%= @user.errors.messages[:name][0] %>
+  <% end %>
+</tr>
+
+<tr>
+  <th><%= f.label :"性別" %></th>
+  <td>
+    <%= f.radio_button :sex, "男" %>男性
+    <%= f.radio_button :sex, "女" %>女性
+  </td>
+</tr>
+
+  <% if @user.errors.any? %>
+  <%= @user.errors.messages[:sex][0] %>
+  <% end %>
+</tr>
+
+<tr>
+  <th><%= f.label :"年齢" %></th>
+  <td><%= f.text_field :age %></td>
+  <% if @user.errors.any? %>
+  <%= @user.errors.messages[:age][0] %>
+  <% end %>
+</tr>
+
+<tr>
+  <th><%= f.label :"希望職種" %></th>
+  <td><%= f.text_field :objective %></td>
+  <% if @user.errors.any? %>
+  <%= @user.errors.messages[:objective][0] %>
+  <% end %>
+</tr>
+
+<tr>
+  <th><%= f.label :"自己PR" %></th>
+  <td><%= f.text_area :pr %></td>
+  <% if @user.errors.any? %>
+  <%= @user.errors.messages[:pr][0] %>
+  <% end %>
+</tr>
+
+<tr>
+  <th><%= f.label :"メールアドレス" %></th>
+  <td><%= f.email_field :email %></td>
+  <% if @user.errors.any? %>
+  <%= @user.errors.messages[:email][0] %>
+  <% end %>
+</tr>
+
+<tr>
+  <th><%= f.label :"パスワード" %></th>
+  <td><%= f.password_field :password %></td>
+  <% if @user.errors.any? %>
+  <%= @user.errors.messages[:password][0] %>
+  <% end %>
+</tr>
+</table>
+<td>
+  <%= f.submit "変更する"%>
+</td>
+
+<% end %>

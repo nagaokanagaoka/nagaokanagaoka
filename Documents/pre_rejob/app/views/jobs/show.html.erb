@@ -1,2 +1,49 @@
-<h1>Jobs#show</h1>
-<p>Find me in app/views/jobs/show.html.erb</p>
+<header>
+<div class="header">
+
+  <div class="header-top">
+    <div class="container">
+      <ul class="header-top__navi">
+      </ul>
+    </div>
+  </div>
+</header>
+<a href ="http://localhost:3000/tops/show"><img src="https://relax-job.com/images/user_frontend/pc/logo_header.png" alt="リジョブ"></a></br>
+<font size="4"><%= link_to "求人一覧へ戻る", jobs_path %></font>
+
+<table class="table table-set--jobdata">
+  <colgroup>
+    <col style="width: 140px;">
+  </colgroup>
+
+  <tr>
+    <th>画像</th>
+    <td><img class="job_image" src="<%= @job.image_path %>" alt="" /></td>
+  </tr>
+
+  <tr>
+    <th width="150">求人番号</th>
+    <td><%= @job.id %></td>
+  </tr>
+  <tr>
+    <th>タイトル</th>
+    <td><%= @job.title %></td>
+  <tr>
+    <th>勤務地</th>
+    <td><%= @job.area %></td>
+  </tr>
+  <tr>
+    <th>PR</th>
+    <td><%= @job.detail %></td>
+  </tr>
+  <tr>
+    <th></th>
+    <td class="align-right">
+      <form method="post" action="/jobs/entry" >
+        <input type="hidden" name="authenticity_token" value="Bp3AFjITlziHlu85/eMxqZnaxwCiwdodEsTvyyUXWicCSR5PHamCysC0HO055lvlXH7UKmOXxnE+h40MTE4e2Q==" />
+          <input name="job_id" type="hidden" value="<%= @job.id %>" />
+          <button type="submit" value="応募する" class="btn btn--pt9" rel="nofollow">応募する</button>
+      </form>
+    </td>
+  </tr>
+</table>

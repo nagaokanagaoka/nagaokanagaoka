@@ -1,2 +1,50 @@
-<h1>Jobs#index</h1>
-<p>Find me in app/views/jobs/index.html.erb</p>
+<header>
+<div class="header">
+
+  <div class="header-top">
+    <div class="container">
+      <ul class="header-top__navi">
+      </ul>
+    </div>
+  </div>
+</header>
+<a href ="http://localhost:3000/tops/show"><img src="https://relax-job.com/images/user_frontend/pc/logo_header.png" alt="リジョブ"></a>
+
+<%= form_tag :search_jobs, method: :get do %>
+  <p><select name="area">
+  <% Area.all.each do |area| %>
+    <option value="<%= area.name  %>"><%= area.name  %></option>
+  <% end %>
+  <button type="submit" name="button">検索</button>
+</select>
+
+  <%= submit_tag "検索" %></p>
+  <% end %>
+
+
+
+<% if @jobs.present? %>
+<div class="job-data__main">
+  <section>
+    <table class="table table-set--jobdata">
+      <colgroup>
+        <col style="width: 100px;">
+      </colgroup>
+  <tr>
+    <th>求人番号</th>
+    <th>タイトル</th>
+    <th>エリア</th>
+  </tr>
+  <% @jobs.each do |job| %>
+  <tr>
+    <td align="right"><%= job.id %></td>
+    <td><%= link_to job.title, job %></td>
+    <td><%= job.area %></td>
+  </tr>
+  <% end %>
+</table>
+<% else %>
+<div align=center>
+<p><font size="5">求人情報がありません。</font></p>
+</div>
+<% end %>

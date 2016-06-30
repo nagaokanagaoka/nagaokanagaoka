@@ -1,0 +1,57 @@
+<table class="attr">
+<tr>
+  <th><%= f.label :"名前" %></th>
+  <td><%= f.text_field :name %></td>
+  <% if @user.errors.any? %>
+  <%= @user.errors.messages[:name][0] %>
+  <% end %>
+</tr>
+
+<tr>
+  <th><%= f.label :"性別" %></th>
+  <td><%= f.text_field :sex %></td>
+  <% if @user.errors.any? %>
+  <%= @user.errors.messages[:sex][0] %>
+  <% end %>
+</tr>
+
+<tr>
+  <th><%= f.label :"年齢" %></th>
+  <td><%= f.text_field :age %></td>
+  <% if @user.errors.any? %>
+  <%= @user.errors.messages[:age][0] %>
+  <% end %>
+</tr>
+
+<tr>
+  <th><%= f.label :"希望職種" %></th>
+  <td><%= f.text_field :objective %></td>
+  <% if @user.errors.any? %>
+  <%= @user.errors.messages[:objective][0] %>
+  <% end %>
+</tr>
+
+<tr>
+  <th><%= f.label :"自己PR" %></th>
+  <td><%= f.text_area :pr %></td>
+  <% if @user.errors.any? %>
+  <%= @user.errors.messages[:pr][0] %>
+  <% end %>
+</tr>
+
+<tr>
+  <th><%= f.label :"メールアドレス" %></th>
+  <td><%= f.email_field :email %></td>
+  <% if @user.errors.any? %>
+  <%= @user.errors.messages[:email][0] %>
+  <% end %>
+</tr>
+
+<tr>
+  <th><%= f.label :"パスワード" %></th>
+  <td><%= f.password_field :password %></td>
+  <% if @user.errors.any? %>
+  <%= @user.errors.messages[:password][0] %>
+  <% end %>
+</tr>
+</table>

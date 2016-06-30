@@ -22,10 +22,10 @@
 en:
   hello: "Hello world"
 
-  activecord:
-    models:
-      job:　求人情報
-  attributes:
-      job:
-        title: 求人タイトル
-        detail:　本文
+  # activecord:
+  #   models:
+  #     job:　"求人情報"
+  # attributes:
+  #     job:
+  #       title: "求人タイトル"
+  #       detail:　"本文"

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<header>
+<div class="header">
+
+  <div class="header-top">
+    <div class="container">
+      <ul class="header-top__navi">
+      </ul>
+    </div>
+  </div>
+</header>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>mypage</title>
+  <div align = right>
+    <h1>ようこそ<%= @user.name %>さん</h1>
+  </div>
+</head>
+<a href ="http://localhost:3000/tops/show"><img src="https://relax-job.com/images/user_frontend/pc/logo_header.png" alt="リジョブ"></a>
+<body>
+  <div>
+    <font color="orange" size="6"><%= @user.name %>さんのマイページ</font>
+    <button><%= link_to "登録情報を変更する", [:edit, @user] %></button>
+  </div>
+  <div align = right>
+    <a href="/tops/show">TOP</a> |
+    <a><%= link_to '求人一覧', :jobs %></a>
+  </div>
+
+  <section class="job-data">
+    <div class="job-data__main" style="height: 1336px;">
+      <section>
+        <table class="table table-set--jobdata">
+          <colgroup>
+            <col style="width: 140px;">
+          </colgroup>
+          <tbody>
+            <tr>
+              <th>お名前</th>
+              <td>
+                <p><%= @user.name %></p>
+              </td>
+            </tr>
+            <tr>
+              <th>年齢</th>
+              <td>
+                <p><%= @user.age %></p>
+              </td>
+            </tr>
+            <tr>
+              <th>性別</th>
+              <td>
+                <p><%= @user.sex %></p>
+              </td>
+            </tr>
+            <tr>
+              <th>応募数</th>
+              <td>
+                <p>応募数
+                  <%= @jobap.count %>
+                社<br>
+            </tr>
+          </tbody>
+        </table>
+      </body>
+      </html>

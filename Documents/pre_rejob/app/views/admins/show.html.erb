@@ -1,15 +1,35 @@
-<% @job_title = @job.title %>
-<h1><%= @job.title %></h1>
+<h1><font size="5"><%= link_to "relaxjob管理画面", :admins %></font><font size="5">     v3</font></h1>
+<font size="4"><%= link_to "一覧", admins_path %>
+<p><%= link_to "編集", [:edit, @job] %></p></font>
 
-<p><%= link_to "編集", [:edit, @job] %></p>
+<table class="table table-set--jobdata">
+  <colgroup>
+    <col style="width: 140px;">
+  </colgroup>
 
-<table class="attr">
+
   <tr>
-    <th width="100">タイトル</th>
-    <td><%= @job.title %></td>
+    <th>画像</th>
+    <td><img class="job_image" src="<%= @job.image_path %>" alt="" /></td>
+  </tr>
+
+  <tr>
+    <th width="150">求人番号</th>
+    <td><%= @job.id %></td>
   </tr>
   <tr>
-    <th>本文</th>
-    <td><%= simple_format(@job.detail) %></td>
+    <th>タイトル</th>
+    <td><%= @job.title %></td>
+  <tr>
+    <th>勤務地</th>
+    <td><%= @job.area %></td>
+  </tr>
+  <tr>
+    <th>PR</th>
+    <td><%= @job.detail %></td>
+  </tr>
+  <tr>
+    <th>応募数</th>
+    <td><%= @entry.count %>人</td>
   </tr>
 </table>

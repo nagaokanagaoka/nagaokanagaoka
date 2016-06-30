@@ -107,3 +107,5 @@ Area.create(:name => '大分県')
 Area.create(:name => '宮崎県')
 Area.create(:name => '鹿児島県')
 Area.create(:name => '沖縄県')
+
+User.create(name:'長岡',email:'tomo.gao.1994@gmail.com',password:'lp121606',sex:'男',age:19,objective:'セラピスト',pr:'頑張ります')

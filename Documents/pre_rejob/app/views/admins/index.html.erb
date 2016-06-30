@@ -1,22 +1,43 @@
-<h1>案件一覧</h1>
-<!-- <%#=案件引っ張ってくる%>
-<% @jobs.each do |job| %>
-  <p><%= job.title %></p>
-<% end %> -->
+<h1><font size="5"><%= link_to "relaxjob管理画面", tops_show_path %></font><font size="5">     v3</font></h1>
+<%= form_tag :search_admins, method: :get do %>
+  <p><select name="area">
+  <% Area.all.each do |area| %>
+    <option value="<%= area.name  %>"><%= area.name  %></option>
+  <% end %>
+  <button type="submit" name="button">検索</button>
+</select>
+  <%= submit_tag "検索" %></p>
+  <% end %>
 
-<%#=リンク%>
-<table class="list">
-  <!-- <tr>
-    <th>求人ID</th>
-    <th>求人タイトル</th> -->
+<% if @jobs.present? %>
+<p><font size="4"><%= link_to "新規求人作成", new_job_path %></font></p>
+<div class="job-data__main">
+  <section>
+    <table class="table table-set--jobdata">
+      <colgroup>
+        <col style="width: 100px;">
+      </colgroup>
+  <tr>
+    <th>求人番号</th>
+    <th>タイトル</th>
+    <th>エリア</th>
+    <th></th>
   </tr>
   <% @jobs.each do |job| %>
   <tr>
-    <td><%= link_to job.title, :admins_show %></td>
+    <td align="right"><%= job.id %></td>
+    <td><%= link_to job.title, admin_path(job) %></td>
+    <td><%= job.area %></td>
     <td>
-      <%= link_to "編集", :admins_edit %>
-
+      <%= link_to "編集", [:edit, job] %> |
+      <%= link_to "削除", job_path(job), method: :delete, data: {confirm:  "削除してもよろしいですか?"} %>
     </td>
   </tr>
   <% end %>
 </table>
+
+<% else %>
+<div align=center>
+<font size="5"><p>求人情報がありません。</p>
+<p><%= link_to "新規求人作成", new_job_path %></p></font>
+<% end %>

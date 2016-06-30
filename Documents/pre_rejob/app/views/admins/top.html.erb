@@ -2,3 +2,17 @@
 <p>v2</p>
 
 <%= link_to "求人一覧", :admins_index %>  &nbsp;|&nbsp;
+
+
+
+<tr>
+<% @jobs.all.each do |job| %>
+</tr>
+
+<tr>
+  <td style="width:40px" align=center><%= job.id %></td>
+  <td><a href="/job/<%= job.id %>"><%= job.title %></td>
+    <td style="width:40px" align=center><%= job.area %></td>
+    <td><%= job.detail %></td>
+  </tr>
+  <% end %>
